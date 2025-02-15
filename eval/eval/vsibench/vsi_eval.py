@@ -185,7 +185,7 @@ if __name__ == "__main__":
     parser.add_argument("--answers_file", type=str, default="./answers/answers.jsonl")
     parser.add_argument("--question_extension", type=str, default="Answer with the option's letter from the given choices directly.")
     parser.add_argument("--question_extension_2", type=str, default="Please answer the question using a single word or phrase.")
-    parser.add_argument("--data_root", type=str, default="/data/weiyang2/mllm_eval_hpc/eval/vsibench/VSI-Bench")
+    parser.add_argument("--data_root", type=str, default="your save address")
     parser.add_argument("--conv_mode", type=str, default="llama_3")
     parser.add_argument("--num_chunks", type=int, default=1)
     parser.add_argument("--chunk_idx", type=int, default=0)
