@@ -64,7 +64,6 @@ def compute_metrics(jsonl_file, output_file, csv_file, extra_outdir=None):
     category_scores = {}
     total_matches = 0
     total_count = 0
-    frame = 
     for category, metrics in category_metrics.items():
         matches = metrics['matches']
         total = metrics['total']
