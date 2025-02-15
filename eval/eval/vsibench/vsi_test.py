@@ -105,7 +105,7 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--answers_file", type=str, default="/data/weiyang2/mllm_eval_hpc/eval/vsibench/answers/answers_0.jsonl", help="Path to the jsonl file containing the model predictions")
+    parser.add_argument("--answers_file", type=str, default="./answers/answers_0.jsonl", help="Path to the jsonl file containing the model predictions")
     parser.add_argument("--output_file", type=str, default="./incorrect/incorrect.jsonl", help="Path to the output file to store the incorrect predictions")
     parser.add_argument("--csv_file", type=str, default="./experiments.csv", help="Path to the output csv file to store the experiment data")
     parser.add_argument("--extra_outdir", type=str, default=None, help="Path to an extra output directory in which to store a copy of the information")

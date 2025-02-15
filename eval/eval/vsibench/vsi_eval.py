@@ -106,11 +106,6 @@ def process(line, args, tokenizer, image_processor, model_config):
         video = batch_to_pil_and_concat(video, mode='horizontal')
         video_size = [video.size]
         video = process_images([video], image_processor, model_config)
-
-        print(video_size,"================")
-        # assert 0
-    #     image = line["image"].convert('RGB')
-    #     image_tensor = process_images([image], image_processor, model_config)
     input_ids = tokenizer_image_token(prompt, tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).cuda()
 
     return input_ids, video_size,video, prompt
@@ -128,17 +123,7 @@ def eval_model(args):
     model_path = os.path.expanduser(args.model_path)
     model_name = get_model_name_from_path(model_path)
     tokenizer, model, image_processor, context_len = load_pretrained_model(model_path, args.model_base, model_name)
-    from datasets import load_dataset
-    vsi_bench = load_dataset("nyu-visionx/VSI-Bench")
-    # print(vsi_bench)
-    # output_dir = "/data/weiyang2/mllm_eval_hpc/eval/vsibench/VSI-Bench"
 
-    # # 将数据集保存为 JSON Lines 格式
-    # for split, dataset in vsi_bench.items():
-    #     output_path = f"{output_dir}/{split}.jsonl"
-    #     dataset.to_json(output_path, orient="records", lines=True)
-    #     print(f"Saved {split} split to {output_path}")
-    # assert 0
     questions = load_dataset("nyu-visionx/VSI-Bench", split="test")
 
     answers_file = os.path.expanduser(args.answers_file)
